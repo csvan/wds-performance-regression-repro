@@ -1,4 +1,5 @@
 const paths = require("./paths");
+const webpack = require("webpack");
 
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
@@ -19,6 +20,8 @@ module.exports = {
   plugins: [
     // Removes/cleans build folders and unused assets when rebuilding
     new CleanWebpackPlugin(),
+
+    new webpack.ProgressPlugin({ profile: true }),
 
     // Copies files from target to destination folder
     new CopyWebpackPlugin({
